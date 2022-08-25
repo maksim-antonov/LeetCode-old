@@ -16,6 +16,8 @@ public class RomanToInteger
             {'M', 1000}
         };
 
+        
+        // we can do it like that
         for (int i = 0; i < s.Length; i++)
         {
             char currentRomanChar = s[i];
@@ -27,9 +29,22 @@ public class RomanToInteger
 
             romanNumbersDictionary.TryGetValue(currentRomanChar, out int num);
 
+            // we can do it like that
+
             if (i + 1 < s.Length && romanNumbersDictionary[s[i + 1]] > romanNumbersDictionary[currentRomanChar])
                 sum -= num;
             else sum += num;
+            
+            // or like that
+            // if (i > 0) {
+            //     if (num > romanNumbersDictionary[s[i-1]]) {
+            //         sum += num - 2 * romanNumbersDictionary[s[i-1]];
+            //     } else {
+            //         sum += num;
+            //     }
+            // } else {
+            //     sum += num;
+            // }
         }
 
         return sum;
