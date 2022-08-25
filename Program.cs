@@ -6,6 +6,7 @@ start:
 
 Console.WriteLine("Available options:");
 Console.WriteLine("1. Two Sum (Easy)");
+Console.WriteLine("4. Median of Two Sorted Arrays (Hard)");
 Console.WriteLine("9. Palindrome Number (Easy)");
 Console.WriteLine("13. Roman to Integer (Easy level)");
 Console.WriteLine("14. Longest Common Prefix (Easy level)");
@@ -22,6 +23,76 @@ switch (val)
     case "1":
         Console.WriteLine("Two Sum (Easy level) selected. https://leetcode.com/problems/two-sum/");
         Console.WriteLine($"Indexes of two numbers that will sum 9: {string.Join(", ", TwoSum.Result(new [] {2,7,11,15}, 9))}");
+        goto start;
+    case "4":
+        Console.WriteLine("Median of Two Sorted Arrays (Hard level) selected. https://leetcode.com/problems/median-of-two-sorted-arrays/");
+medianSortedStart:
+        Console.Write("Input first array using space as a separator or write Q to quit: ");
+        var firstArrStr = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(firstArrStr))
+        {
+            Console.WriteLine("Incorrect input.");
+            goto medianSortedStart;
+        }
+        
+        if (firstArrStr is "Q" or "q")
+            goto start;
+
+        var numberStrings1 = firstArrStr.Split(' ').ToArray();
+        var firstList = new List<int>(); 
+        
+        foreach (var n in numberStrings1)
+        {
+            if (int.TryParse(n, out int num))
+            {
+                firstList.Add(num);
+            }
+            else
+            {
+                Console.WriteLine("Incorrect input.");
+                goto medianSortedStart;
+            }
+        }
+
+        Console.Write("Now input second array using space as a separator or write Q to quit: ");
+        var secondArrStr = Console.ReadLine();
+        
+        if (string.IsNullOrWhiteSpace(secondArrStr))
+        {
+            Console.WriteLine("Incorrect input.");
+            goto medianSortedStart;
+        }
+        
+        if (secondArrStr is "Q" or "q")
+            goto start;
+
+        var numberStrings2 = secondArrStr.Split(' ').ToArray();
+        var secondList = new List<int>(); 
+        
+        foreach (var n in numberStrings2)
+        {
+            if (int.TryParse(n, out int num))
+            {
+                secondList.Add(num);
+            }
+            else
+            {
+                Console.WriteLine("Incorrect input.");
+                goto medianSortedStart;
+            }
+        }
+
+        int[] firstArr = firstList.ToArray();
+        Array.Sort(firstArr);
+        
+        int[] secondArr = secondList.ToArray();
+        Array.Sort(secondArr);
+
+        var median = MedianOfTwoSortedArrays.FindMedianSortedArrays(firstArr, secondArr);
+
+        Console.WriteLine($"Two sorted arrays: [{string.Join(", ", firstArr)}], [{string.Join(", ", secondArr)}]");
+        Console.WriteLine($"Median of two sorted arrays: {median}");
+
         goto start;
     case "9":
         Console.WriteLine("Palindrome Number (Easy level) selected. https://leetcode.com/problems/palindrome-number/");
