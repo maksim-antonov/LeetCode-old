@@ -1,6 +1,6 @@
 namespace LeetCode.Solutions;
 
-public class MedianOfTwoSortedArrays
+public static class MedianOfTwoSortedArrays
 {
     public static double FindMedianSortedArrays(int[] nums1, int[] nums2)
     {
@@ -12,8 +12,6 @@ public class MedianOfTwoSortedArrays
         int count;
 
         int m1 = -1, m2 = -1;
-
-        int low = 0, high = n1;
         int i = 0, j = 0;
 
         if ((n1 + n2) % 2 == 1)

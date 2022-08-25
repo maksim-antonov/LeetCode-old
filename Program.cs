@@ -10,6 +10,7 @@ Console.WriteLine("4. Median of Two Sorted Arrays (Hard)");
 Console.WriteLine("9. Palindrome Number (Easy)");
 Console.WriteLine("13. Roman to Integer (Easy level)");
 Console.WriteLine("14. Longest Common Prefix (Easy level)");
+Console.WriteLine("704. Binary search (Easy level)");
 
 var val = Console.ReadLine();
 
@@ -100,12 +101,12 @@ palindromeStart:
         Console.WriteLine("Please write the number. \tIf you want quit write Q and press Enter.");
         var checkString = Console.ReadLine();
         Console.WriteLine();
-        int checkNumber;
         if (!string.IsNullOrWhiteSpace(checkString))
         {
             if (checkString is "q" or "Q")
                 goto start;
 
+            int checkNumber;
             if (int.TryParse(checkString, out checkNumber))
             {
                 var str = PalindromeNumber.IsPalindrome(checkNumber) ? "Palindrome" : "not Palindrome";
@@ -167,6 +168,55 @@ lcpStart:
             Console.WriteLine("There is no common prefix");
         }
         goto start;
+    case "704":
+        Console.WriteLine("Binary search (Easy level) selected. https://leetcode.com/problems/binary-search");
+binarySearchStart:
+        Console.Write("Input integer array using space as a separator. Or write Q for quit: ");
+        var bsStr = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(bsStr))
+        {
+            Console.WriteLine("Incorrect input.");
+            goto binarySearchStart;
+        }
+
+        if (bsStr is "q" or "Q")
+            goto start;
+
+        var bsStrings = bsStr.Split(' ').ToArray();
+        
+        var bsList = new List<int>(); 
+        
+        foreach (var n in bsStrings)
+        {
+            if (int.TryParse(n, out int num))
+            {
+                bsList.Add(num);
+            }
+            else
+            {
+                Console.WriteLine("Incorrect input.");
+                goto binarySearchStart;
+            }
+        }
+
+        var bsArr = bsList.ToArray();
+        Array.Sort(bsArr);
+
+        Console.WriteLine($"Your array is: [{string.Join(", ", bsArr)}]\nNow write target you want search: ");
+        var bsTarget = Console.ReadLine();
+
+        if (!string.IsNullOrWhiteSpace(bsTarget))
+        {
+            if (int.TryParse(bsTarget, out int num))
+            {
+                var index = BinarySearch.Search(bsArr, num);
+                if (index != -1)
+                    Console.WriteLine($"Target: {bsTarget}\nin array: [{string.Join(", ", bsArr)}]\nhave an index: {index}");
+                else Console.WriteLine($"Target: {bsTarget}\nin array: [{string.Join(", ", bsArr)}]\nwas not found...");
+            } 
+            else Console.WriteLine("Wrong input.");
+        }
+        goto binarySearchStart;
     case "q" or "Q":
         Console.WriteLine("Bye!");
         break;
