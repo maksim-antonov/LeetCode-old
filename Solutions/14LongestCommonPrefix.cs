@@ -2,6 +2,8 @@ namespace LeetCode.Solutions;
 
 public class LongestCommonPrefix
 {
+    // 14. Longest Common Prefix
+    // https://leetcode.com/problems/longest-common-prefix/
     public static string Result(string[] strs)
     {
         switch (strs.Length)

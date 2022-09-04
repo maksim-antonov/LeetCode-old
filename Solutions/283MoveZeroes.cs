@@ -1,4 +1,4 @@
-namespace LeetCode.Solutions.Day3;
+namespace LeetCode.Solutions;
 
 public class MoveZeroes
 {

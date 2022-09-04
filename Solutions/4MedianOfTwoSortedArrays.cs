@@ -2,6 +2,8 @@ namespace LeetCode.Solutions;
 
 public static class MedianOfTwoSortedArrays
 {
+    //4. Median of Two Sorted Arrays
+    // https://leetcode.com/problems/median-of-two-sorted-arrays/
     public static double FindMedianSortedArrays(int[] nums1, int[] nums2)
     {
         if (nums2.Length < nums1.Length) return FindMedianSortedArrays(nums2, nums1);

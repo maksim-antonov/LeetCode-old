@@ -1,7 +1,9 @@
-namespace LeetCode.Solutions.Day3;
+namespace LeetCode.Solutions;
 
 public class TwoSumII
 {
+    //167. Two Sum II - Input Array Is Sorted
+    //https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
     public int[] Result(int[] numbers, int target) 
     {
         var answer = new int[2];

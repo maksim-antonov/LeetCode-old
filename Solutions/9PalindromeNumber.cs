@@ -2,6 +2,8 @@ namespace LeetCode.Solutions;
 
 public class PalindromeNumber
 {
+    //9. Palindrome Number
+    //https://leetcode.com/problems/palindrome-number/
     public static bool IsPalindrome(int x)
     {
         int total = 0;

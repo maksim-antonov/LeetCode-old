@@ -2,6 +2,8 @@ namespace LeetCode.Solutions;
 
 public class TwoSum
 {
+    //1 two sum
+    //https://leetcode.com/problems/two-sum/
     public static int[] Result(int[] nums, int target)
     {
         Console.WriteLine($"Nums: [{string.Join(", ", nums)}], Target: {target}");
